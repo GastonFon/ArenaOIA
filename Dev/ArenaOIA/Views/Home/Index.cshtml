@@ -1,0 +1,107 @@
+﻿@model IEnumerable<ArenaOIA.Models.Contest>
+
+@{
+    ViewBag.Title = "Inicio";
+}
+
+<h2>Lista de competencias</h2>
+
+<table class="table table-hover table-dark" id="activeContests">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Inicio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fin)
+        </th>
+        <th></th>
+    </tr>
+
+    @{
+        int activas = 0;
+        foreach (var item in Model)
+        {
+            if (ViewBag.CurrentDateTime <= item.Fin)
+            {
+                activas++;
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Inicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fin)
+            </td>
+            @if (ViewBag.Username != null && item.Participantes != null && item.Participantes.Contains(ViewBag.Username) == true)
+            {
+                if (item.Inicio <= ViewBag.CurrentDateTime)
+                {
+                    <td>
+                        <a class="btn btn-warning" href="/Arena/Contest/@item.Id" style="color:white">Entrar</a>
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        <a class="btn btn-success" href="#" style="color:white">Registrado</a>
+                    </td>
+                }
+            }
+            else
+            {
+                <td>
+                    <a class="btn btn-primary" href="/Home/Register/@item.Id" style="color:white">Registrarme</a>
+                </td>
+            }
+
+        </tr>
+            }
+        }
+    }
+</table>
+
+
+@if (activas < Model.Count())
+{
+    <h2>Competencias pasadas</h2>
+    <table class="table table-hover table-dark" id="pastContests">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fin)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            if (ViewBag.CurrentDateTime > item.Fin)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Inicio)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fin)
+                    </td>
+                    <td>
+                        <a class="btn btn-danger" href="/Arena/Ranking/@item.Id">Ver rankings</a>
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+}

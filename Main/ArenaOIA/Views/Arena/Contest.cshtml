@@ -1,0 +1,20 @@
+﻿@model ArenaOIA.Models.Contest
+
+@{
+    ViewBag.Title = Model.Id;
+}
+
+<h2>@Model.Id</h2>
+<h2>Tu puntaje total es: @ViewBag.TotalScore</h2>
+
+<div>
+    @foreach (var item in Model.Problemas)
+    {
+        <a href="/Arena/Problem/?Id=@Model.Id&problem=@item.Nombre" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">@item.Nombre (@item.Puntaje puntos)</a>
+    }
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/myScripts")
+}

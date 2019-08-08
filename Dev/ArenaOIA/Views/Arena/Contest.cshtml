@@ -1,0 +1,88 @@
+﻿@model ArenaOIA.Models.Contest
+
+@{
+    ViewBag.Title = Model.Id;
+}
+
+<h5>
+    <a href="~/Home" class="btn btn-dark">Arena</a> / <a href="#" class="btn btn-dark">@Model.Id</a> / Tu puntaje: @ViewBag.TotalScore
+</h5>
+
+@if (Model.Ranking == true)
+{
+    <a href="~/Arena/Ranking/@Model.Id" class="btn btn-danger">Ranking @Model.Id</a>
+}
+
+@if (ViewBag.ErrorMessage != "")
+{
+    <h4 style="color: red;">@ViewBag.ErrorMessage</h4>
+}
+
+<div>
+    <table class="table table-hover table-dark">
+        @foreach (var item in Model.Problemas)
+        {
+            if (ViewBag.Scores[item.Nombre] == -1)
+            {
+                <tr data-href="/Arena/Problem/?Id=@Model.Id&problem=@item.Nombre">
+                    <td align="left">
+                        <span>
+                            <i class="fa fa-angle-right"></i>
+                        </span>
+                        @item.Nombre
+                    </td>
+                    <td align="right">
+                        <span class="badge badge-light">@item.Puntaje</span>
+                    </td>
+                </tr>
+            }
+            else if (ViewBag.Scores[item.Nombre] == 0)
+            {
+                <tr data-href="/Arena/Problem/?Id=@Model.Id&problem=@item.Nombre">
+                    <td align="left">
+                        <span>
+                            <i class="fa fa-angle-right"></i>
+                        </span>
+                        @item.Nombre
+                    </td>
+                    <td align="right">
+                        <span class="badge badge-danger">@ViewBag.Scores[item.Nombre]/@item.Puntaje</span>
+                    </td>
+                </tr>
+            }
+            else if (ViewBag.Scores[item.Nombre] < item.Puntaje)
+            {
+                <tr data-href="/Arena/Problem/?Id=@Model.Id&problem=@item.Nombre">
+                    <td align="left">
+                        <span>
+                            <i class="fa fa-angle-right"></i>
+                        </span>
+                        @item.Nombre
+                    </td>
+                    <td align="right">
+                        <span class="badge badge-warning">@ViewBag.Scores[item.Nombre]/@item.Puntaje</span>
+                    </td>
+                </tr>
+            }
+            else
+            {
+                <tr data-href="/Arena/Problem/?Id=@Model.Id&problem=@item.Nombre">
+                    <td align="left">
+                        <span>
+                            <i class="fa fa-angle-right"></i>
+                        </span>
+                        @item.Nombre
+                    </td>
+                    <td align="right">
+                        <span class="badge badge-success">@ViewBag.Scores[item.Nombre]/@item.Puntaje</span>
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/myScripts")
+}

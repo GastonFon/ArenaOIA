@@ -1,0 +1,97 @@
+﻿@model ArenaOIA.Models.ProblemViewModel
+
+@{
+    ViewBag.Title = Model.Nombre;
+}
+
+@*
+    <style type="text/css" media="screen">
+
+        #editor {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+*@
+<br />
+@Html.ActionLink("<< Atras", "Contest", new { Id = ViewBag.ContestId }, new { @class = "btn btn-danger" })
+<h4>@Model.Nombre (@ViewBag.Puntaje puntos)</h4>
+<h4>Límite de tiempo: @Model.LimiteTiempo segundos</h4>
+<h4>Límite de memoria: @Model.LimiteMemoria MB</h4>
+<h4>Tu mejor puntaje: @ViewBag.BestScore</h4>
+<hr />
+
+<input type="hidden" id="contest" value="@ViewBag.ContestId" />
+<input type="hidden" id="problema" value="@ViewBag.Problema" />
+
+@foreach (var item in Model.Archivos)
+{
+    string filename = item.Item1;
+    string token = item.Item2;
+    string url = "http://juez.oia.unsam.edu.ar/api/files/" + token + "/" + filename;
+    <a href="@url" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">@filename</a>
+}
+
+<hr />
+@*
+    <div class="col-md-6" style="height:300px; padding-bottom:300px;">
+        <div id="editor">
+        </div>
+    </div>
+*@
+
+@Html.TextAreaFor(model => Model.Codigo, new { @placeholder = "Ingrese su código aquí", @id = "areaCodigo" })
+
+<a id="submitButton" class="btn btn-default" role="button">Enviar solución</a>
+
+
+<hr />
+
+<table class="table">
+    <tr>
+        <th>
+            Id
+        </th>
+        <th>
+            Fecha y hora
+        </th>
+        <th>
+            Estado
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Envios)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OIAJSubmissionId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Puntaje)
+            </td>
+            <td></td>
+        </tr>
+    }
+
+</table>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/myScripts")
+}
+@*
+        <script src = "http://juez.oia.unsam.edu.ar/node_modules/ace-builds/src-min-noconflict/ace.js" type = "text/javascript" charset = "utf-8" ></script >
+    <script>
+        var editor = ace.edit("editor");
+       editor.setTheme("ace/theme/monokai");
+     editor.session.setMode("ace/mode/c_cpp");
+    </script>
+*@

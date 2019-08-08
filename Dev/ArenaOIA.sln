@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.452
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArenaOIA", "ArenaOIA\ArenaOIA.csproj", "{81D89FBF-31CA-478B-8D12-AB735EF0C497}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{81D89FBF-31CA-478B-8D12-AB735EF0C497}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81D89FBF-31CA-478B-8D12-AB735EF0C497}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81D89FBF-31CA-478B-8D12-AB735EF0C497}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81D89FBF-31CA-478B-8D12-AB735EF0C497}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {36F0E2D0-76BA-48A9-BFC6-F3342C151356}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://gastonfon.visualstudio.com/
+		SccProjectUniqueName0 = ArenaOIA\\ArenaOIA.csproj
+		SccProjectName0 = ArenaOIA
+		SccLocalPath0 = ArenaOIA
+		SccLocalPath1 = .
+	EndGlobalSection
+EndGlobal

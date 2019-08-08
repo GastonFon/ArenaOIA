@@ -1,0 +1,486 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{81D89FBF-31CA-478B-8D12-AB735EF0C497}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ArenaOIA</RootNamespace>
+    <AssemblyName>ArenaOIA</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TypeScriptToolsVersion>3.3</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FireSharp, Version=2.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FireSharp.2.0.4\lib\portable-net45+sl5+wp8+win8\FireSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions.Desktop, Version=1.0.168.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=106.6.9.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.6.9\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\APIController.cs" />
+    <Compile Include="Controllers\ArenaController.cs" />
+    <Compile Include="Controllers\ContestsController.cs" />
+    <Compile Include="Controllers\FirebaseController.cs" />
+    <Compile Include="Controllers\HelperController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Contest.cs" />
+    <Compile Include="Models\ContestViewModel.cs" />
+    <Compile Include="Models\LoginViewModel.cs" />
+    <Compile Include="Models\Problem.cs" />
+    <Compile Include="Models\ProblemViewModel.cs" />
+    <Compile Include="Models\Submission.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\ace\ace.js" />
+    <Content Include="Content\ace\ext-beautify.js" />
+    <Content Include="Content\ace\ext-elastic_tabstops_lite.js" />
+    <Content Include="Content\ace\ext-emmet.js" />
+    <Content Include="Content\ace\ext-error_marker.js" />
+    <Content Include="Content\ace\ext-keybinding_menu.js" />
+    <Content Include="Content\ace\ext-language_tools.js" />
+    <Content Include="Content\ace\ext-linking.js" />
+    <Content Include="Content\ace\ext-modelist.js" />
+    <Content Include="Content\ace\ext-options.js" />
+    <Content Include="Content\ace\ext-prompt.js" />
+    <Content Include="Content\ace\ext-rtl.js" />
+    <Content Include="Content\ace\ext-searchbox.js" />
+    <Content Include="Content\ace\ext-settings_menu.js" />
+    <Content Include="Content\ace\ext-spellcheck.js" />
+    <Content Include="Content\ace\ext-split.js" />
+    <Content Include="Content\ace\ext-static_highlight.js" />
+    <Content Include="Content\ace\ext-statusbar.js" />
+    <Content Include="Content\ace\ext-textarea.js" />
+    <Content Include="Content\ace\ext-themelist.js" />
+    <Content Include="Content\ace\ext-whitespace.js" />
+    <Content Include="Content\ace\keybinding-emacs.js" />
+    <Content Include="Content\ace\keybinding-sublime.js" />
+    <Content Include="Content\ace\keybinding-vim.js" />
+    <Content Include="Content\ace\mode-c_cpp.js" />
+    <Content Include="Content\ace\snippets\abap.js" />
+    <Content Include="Content\ace\snippets\abc.js" />
+    <Content Include="Content\ace\snippets\actionscript.js" />
+    <Content Include="Content\ace\snippets\ada.js" />
+    <Content Include="Content\ace\snippets\apache_conf.js" />
+    <Content Include="Content\ace\snippets\apex.js" />
+    <Content Include="Content\ace\snippets\applescript.js" />
+    <Content Include="Content\ace\snippets\aql.js" />
+    <Content Include="Content\ace\snippets\asciidoc.js" />
+    <Content Include="Content\ace\snippets\asl.js" />
+    <Content Include="Content\ace\snippets\assembly_x86.js" />
+    <Content Include="Content\ace\snippets\autohotkey.js" />
+    <Content Include="Content\ace\snippets\batchfile.js" />
+    <Content Include="Content\ace\snippets\bro.js" />
+    <Content Include="Content\ace\snippets\c9search.js" />
+    <Content Include="Content\ace\snippets\cirru.js" />
+    <Content Include="Content\ace\snippets\clojure.js" />
+    <Content Include="Content\ace\snippets\cobol.js" />
+    <Content Include="Content\ace\snippets\coffee.js" />
+    <Content Include="Content\ace\snippets\coldfusion.js" />
+    <Content Include="Content\ace\snippets\crystal.js" />
+    <Content Include="Content\ace\snippets\csharp.js" />
+    <Content Include="Content\ace\snippets\csound_document.js" />
+    <Content Include="Content\ace\snippets\csound_orchestra.js" />
+    <Content Include="Content\ace\snippets\csound_score.js" />
+    <Content Include="Content\ace\snippets\csp.js" />
+    <Content Include="Content\ace\snippets\css.js" />
+    <Content Include="Content\ace\snippets\curly.js" />
+    <Content Include="Content\ace\snippets\c_cpp.js" />
+    <Content Include="Content\ace\snippets\d.js" />
+    <Content Include="Content\ace\snippets\dart.js" />
+    <Content Include="Content\ace\snippets\diff.js" />
+    <Content Include="Content\ace\snippets\django.js" />
+    <Content Include="Content\ace\snippets\dockerfile.js" />
+    <Content Include="Content\ace\snippets\dot.js" />
+    <Content Include="Content\ace\snippets\drools.js" />
+    <Content Include="Content\ace\snippets\edifact.js" />
+    <Content Include="Content\ace\snippets\eiffel.js" />
+    <Content Include="Content\ace\snippets\ejs.js" />
+    <Content Include="Content\ace\snippets\elixir.js" />
+    <Content Include="Content\ace\snippets\elm.js" />
+    <Content Include="Content\ace\snippets\erlang.js" />
+    <Content Include="Content\ace\snippets\forth.js" />
+    <Content Include="Content\ace\snippets\fortran.js" />
+    <Content Include="Content\ace\snippets\fsharp.js" />
+    <Content Include="Content\ace\snippets\fsl.js" />
+    <Content Include="Content\ace\snippets\ftl.js" />
+    <Content Include="Content\ace\snippets\gcode.js" />
+    <Content Include="Content\ace\snippets\gherkin.js" />
+    <Content Include="Content\ace\snippets\gitignore.js" />
+    <Content Include="Content\ace\snippets\glsl.js" />
+    <Content Include="Content\ace\snippets\gobstones.js" />
+    <Content Include="Content\ace\snippets\golang.js" />
+    <Content Include="Content\ace\snippets\graphqlschema.js" />
+    <Content Include="Content\ace\snippets\groovy.js" />
+    <Content Include="Content\ace\snippets\haml.js" />
+    <Content Include="Content\ace\snippets\handlebars.js" />
+    <Content Include="Content\ace\snippets\haskell.js" />
+    <Content Include="Content\ace\snippets\haskell_cabal.js" />
+    <Content Include="Content\ace\snippets\haxe.js" />
+    <Content Include="Content\ace\snippets\hjson.js" />
+    <Content Include="Content\ace\snippets\html.js" />
+    <Content Include="Content\ace\snippets\html_elixir.js" />
+    <Content Include="Content\ace\snippets\html_ruby.js" />
+    <Content Include="Content\ace\snippets\ini.js" />
+    <Content Include="Content\ace\snippets\io.js" />
+    <Content Include="Content\ace\snippets\jack.js" />
+    <Content Include="Content\ace\snippets\jade.js" />
+    <Content Include="Content\ace\snippets\java.js" />
+    <Content Include="Content\ace\snippets\javascript.js" />
+    <Content Include="Content\ace\snippets\json.js" />
+    <Content Include="Content\ace\snippets\jsoniq.js" />
+    <Content Include="Content\ace\snippets\jsp.js" />
+    <Content Include="Content\ace\snippets\jssm.js" />
+    <Content Include="Content\ace\snippets\jsx.js" />
+    <Content Include="Content\ace\snippets\julia.js" />
+    <Content Include="Content\ace\snippets\kotlin.js" />
+    <Content Include="Content\ace\snippets\latex.js" />
+    <Content Include="Content\ace\snippets\less.js" />
+    <Content Include="Content\ace\snippets\liquid.js" />
+    <Content Include="Content\ace\snippets\lisp.js" />
+    <Content Include="Content\ace\snippets\livescript.js" />
+    <Content Include="Content\ace\snippets\logiql.js" />
+    <Content Include="Content\ace\snippets\logtalk.js" />
+    <Content Include="Content\ace\snippets\lsl.js" />
+    <Content Include="Content\ace\snippets\lua.js" />
+    <Content Include="Content\ace\snippets\luapage.js" />
+    <Content Include="Content\ace\snippets\lucene.js" />
+    <Content Include="Content\ace\snippets\makefile.js" />
+    <Content Include="Content\ace\snippets\markdown.js" />
+    <Content Include="Content\ace\snippets\mask.js" />
+    <Content Include="Content\ace\snippets\matlab.js" />
+    <Content Include="Content\ace\snippets\maze.js" />
+    <Content Include="Content\ace\snippets\mel.js" />
+    <Content Include="Content\ace\snippets\mixal.js" />
+    <Content Include="Content\ace\snippets\mushcode.js" />
+    <Content Include="Content\ace\snippets\mysql.js" />
+    <Content Include="Content\ace\snippets\nginx.js" />
+    <Content Include="Content\ace\snippets\nim.js" />
+    <Content Include="Content\ace\snippets\nix.js" />
+    <Content Include="Content\ace\snippets\nsis.js" />
+    <Content Include="Content\ace\snippets\objectivec.js" />
+    <Content Include="Content\ace\snippets\ocaml.js" />
+    <Content Include="Content\ace\snippets\pascal.js" />
+    <Content Include="Content\ace\snippets\perl.js" />
+    <Content Include="Content\ace\snippets\perl6.js" />
+    <Content Include="Content\ace\snippets\pgsql.js" />
+    <Content Include="Content\ace\snippets\php.js" />
+    <Content Include="Content\ace\snippets\php_laravel_blade.js" />
+    <Content Include="Content\ace\snippets\pig.js" />
+    <Content Include="Content\ace\snippets\plain_text.js" />
+    <Content Include="Content\ace\snippets\powershell.js" />
+    <Content Include="Content\ace\snippets\praat.js" />
+    <Content Include="Content\ace\snippets\prolog.js" />
+    <Content Include="Content\ace\snippets\properties.js" />
+    <Content Include="Content\ace\snippets\protobuf.js" />
+    <Content Include="Content\ace\snippets\puppet.js" />
+    <Content Include="Content\ace\snippets\python.js" />
+    <Content Include="Content\ace\snippets\r.js" />
+    <Content Include="Content\ace\snippets\razor.js" />
+    <Content Include="Content\ace\snippets\rdoc.js" />
+    <Content Include="Content\ace\snippets\red.js" />
+    <Content Include="Content\ace\snippets\redshift.js" />
+    <Content Include="Content\ace\snippets\rhtml.js" />
+    <Content Include="Content\ace\snippets\rst.js" />
+    <Content Include="Content\ace\snippets\ruby.js" />
+    <Content Include="Content\ace\snippets\rust.js" />
+    <Content Include="Content\ace\snippets\sass.js" />
+    <Content Include="Content\ace\snippets\scad.js" />
+    <Content Include="Content\ace\snippets\scala.js" />
+    <Content Include="Content\ace\snippets\scheme.js" />
+    <Content Include="Content\ace\snippets\scss.js" />
+    <Content Include="Content\ace\snippets\sh.js" />
+    <Content Include="Content\ace\snippets\sjs.js" />
+    <Content Include="Content\ace\snippets\slim.js" />
+    <Content Include="Content\ace\snippets\smarty.js" />
+    <Content Include="Content\ace\snippets\snippets.js" />
+    <Content Include="Content\ace\snippets\soy_template.js" />
+    <Content Include="Content\ace\snippets\space.js" />
+    <Content Include="Content\ace\snippets\sparql.js" />
+    <Content Include="Content\ace\snippets\sql.js" />
+    <Content Include="Content\ace\snippets\sqlserver.js" />
+    <Content Include="Content\ace\snippets\stylus.js" />
+    <Content Include="Content\ace\snippets\svg.js" />
+    <Content Include="Content\ace\snippets\swift.js" />
+    <Content Include="Content\ace\snippets\tcl.js" />
+    <Content Include="Content\ace\snippets\terraform.js" />
+    <Content Include="Content\ace\snippets\tex.js" />
+    <Content Include="Content\ace\snippets\text.js" />
+    <Content Include="Content\ace\snippets\textile.js" />
+    <Content Include="Content\ace\snippets\toml.js" />
+    <Content Include="Content\ace\snippets\tsx.js" />
+    <Content Include="Content\ace\snippets\turtle.js" />
+    <Content Include="Content\ace\snippets\twig.js" />
+    <Content Include="Content\ace\snippets\typescript.js" />
+    <Content Include="Content\ace\snippets\vala.js" />
+    <Content Include="Content\ace\snippets\vbscript.js" />
+    <Content Include="Content\ace\snippets\velocity.js" />
+    <Content Include="Content\ace\snippets\verilog.js" />
+    <Content Include="Content\ace\snippets\vhdl.js" />
+    <Content Include="Content\ace\snippets\visualforce.js" />
+    <Content Include="Content\ace\snippets\wollok.js" />
+    <Content Include="Content\ace\snippets\xml.js" />
+    <Content Include="Content\ace\snippets\xquery.js" />
+    <Content Include="Content\ace\snippets\yaml.js" />
+    <Content Include="Content\ace\theme-monokai.js" />
+    <Content Include="Content\ace\theme-terminal.js" />
+    <Content Include="Content\ace\worker-coffee.js" />
+    <Content Include="Content\ace\worker-css.js" />
+    <Content Include="Content\ace\worker-html.js" />
+    <Content Include="Content\ace\worker-javascript.js" />
+    <Content Include="Content\ace\worker-json.js" />
+    <Content Include="Content\ace\worker-lua.js" />
+    <Content Include="Content\ace\worker-php.js" />
+    <Content Include="Content\ace\worker-xml.js" />
+    <Content Include="Content\ace\worker-xquery.js" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <None Include="Properties\PublishProfiles\arenaoia - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\arenaoia - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\oiaprueba - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\oiaprueba - Web Deploy.pubxml" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\scripts.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Contests\Create.cshtml" />
+    <Content Include="Views\Contests\Delete.cshtml" />
+    <Content Include="Views\Contests\Details.cshtml" />
+    <Content Include="Views\Contests\Edit.cshtml" />
+    <Content Include="Views\Contests\Index.cshtml" />
+    <Content Include="Views\Contests\ProblemEditorRow.cshtml" />
+    <Content Include="Views\Arena\Contest.cshtml" />
+    <Content Include="Views\Arena\Problem.cshtml" />
+    <Content Include="Views\Arena\Ranking.cshtml" />
+    <Content Include="Views\Home\Status.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>57516</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:57516/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

@@ -1,0 +1,79 @@
+﻿@model List<ArenaOIA.Models.Submission>
+
+@{
+    ViewBag.Title = "Status";
+}
+
+<h2>Envíos de los últimos 2 meses</h2>
+
+<table class="table table-hover table-dark">
+    <tr>
+        <th>
+            Username
+        </th>
+        <th>
+            Contest
+        </th>
+        <th>
+            Problema
+        </th>
+        <th>
+            OIAJ_Id
+        </th>
+        <th>
+            Fecha
+        </th>
+        <th>
+            Puntaje
+        </th>
+        <th>
+            Codigo
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        string colorClase = "";
+        if (item.Puntaje == 0)
+        {
+            colorClase = "bg-danger";
+        }
+        else if (item.Json.GetValue("score") != null && item.Json.GetValue("score").ToString() != "100")
+        {
+            colorClase = "bg-warning";
+        }
+        else
+        {
+            colorClase = "bg-success";
+        }
+
+        <tr class="@colorClase">
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContestId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProblemName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OIAJSubmissionId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Puntaje)
+            </td>
+            <td>
+                @{
+                    string filename = item.ProblemName + "_" + item.Username + "_" + item.OIAJSubmissionId + ".cpp";
+                    string url = "http://juez.oia.unsam.edu.ar/api/files/" + item.CodigoToken + "/" + filename;
+                    <a href="@url" class="btn btn-dark" role="button">Descargar</a>
+                }
+            </td>
+        </tr>
+    }
+
+</table>
